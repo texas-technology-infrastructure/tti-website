@@ -1,0 +1,255 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Section from '../Section.astro';
+import Container from '../Container.astro';
+import Icon from '../Icon.astro';
+import CheckList from '../CheckList.astro';
+import { site } from '../../data/site';
+
+interface Props {
+	mapImage?: ImageMetadata;
+}
+
+const { mapImage } = Astro.props;
+
+const cities = [
+	'Dallas',
+	'Fort Worth',
+	'Arlington',
+	'Irving / Las Colinas',
+	'Plano',
+	'Frisco',
+	'Richardson',
+	'Carrollton',
+	'Grapevine',
+	'Denton',
+	'Grand Prairie',
+	'Lewisville',
+	'Garland',
+	'Mesquite',
+	'McKinney',
+	'Allen',
+	'Mansfield',
+	'Burleson',
+	'Cedar Hill',
+	'Duncanville',
+	'DeSoto',
+	'Waxahachie',
+	'Bedford',
+	'Euless',
+	'Hurst',
+	'Southlake',
+	'Colleyville',
+	'Keller',
+	'Azle',
+	'Weatherford',
+	'Roanoke',
+	'The Colony',
+	'Little Elm',
+	'Coppell',
+	'Flower Mound',
+];
+---
+
+<Section background="inverse">
+	<Container>
+		<div class="business-service-area">
+			<div class="business-service-area__col">
+				<h2>Partners for Your Success</h2>
+				<p class="business-service-area__intro">
+					However your team is structured, TTI fits in as hands-on technical support.
+				</p>
+
+				<div class="business-service-area__block" id="for-businesses">
+					<span class="business-service-area__icon"><Icon name="building" size={20} /></span>
+					<h3>For Businesses</h3>
+					<p>
+						We manage and support your technology directly &mdash; as your outsourced IT
+						department or alongside your existing team.
+					</p>
+					<a href="/services">Learn More <Icon name="arrow-right" size={16} /></a>
+				</div>
+
+				<div class="business-service-area__block" id="for-msps">
+					<span class="business-service-area__icon"><Icon name="network-extend" size={20} /></span>
+					<h3>For MSPs &amp; IT Providers</h3>
+					<p>
+						We act as an extension of your technical team &mdash; providing DFW field support,
+						remote help desk coverage, and infrastructure work under your brand.
+					</p>
+					<a href="/services">Learn More <Icon name="arrow-right" size={16} /></a>
+				</div>
+			</div>
+
+			<div class="business-service-area__divider"></div>
+
+			<div class="business-service-area__col">
+				<h2>Proudly Serving Dallas&ndash;Fort Worth</h2>
+				<p class="business-service-area__intro">
+					{site.serviceArea.onsite}<br />
+					{site.serviceArea.remote}
+				</p>
+
+				<div class="service-area__map">
+					{
+						mapImage ? (
+							<Image src={mapImage} alt="" aria-hidden="true" class="service-area__map-image" loading="lazy" decoding="async" />
+						) : (
+							<div class="service-area__map-fallback" aria-hidden="true">
+								<span class="service-area__map-label service-area__map-label--dallas">Dallas</span>
+								<span class="service-area__map-label service-area__map-label--fw">Fort Worth</span>
+							</div>
+						)
+					}
+				</div>
+
+				<div class="service-area__cities">
+					<CheckList items={cities} columns={1} />
+				</div>
+			</div>
+		</div>
+	</Container>
+</Section>
+
+<style>
+	.business-service-area {
+		display: grid;
+		gap: var(--space-10);
+	}
+
+	.business-service-area__col h2 {
+		margin-bottom: var(--space-3);
+	}
+
+	.business-service-area__intro {
+		color: var(--color-text-inverse-muted);
+		margin-bottom: var(--space-6);
+	}
+
+	.business-service-area__block {
+		padding: var(--space-5) 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+		scroll-margin-top: 6rem;
+	}
+
+	.business-service-area__block a {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-2);
+		font-weight: 600;
+		font-size: var(--text-sm);
+		text-decoration: none;
+		margin-top: var(--space-2);
+	}
+
+	.business-service-area__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: var(--radius-full);
+		background-color: rgba(96, 165, 250, 0.16);
+		color: var(--color-blue-light);
+		margin-bottom: var(--space-3);
+	}
+
+	.business-service-area__block h3 {
+		margin-bottom: var(--space-2);
+	}
+
+	.business-service-area__block p {
+		color: var(--color-text-inverse-muted);
+		font-size: var(--text-sm);
+	}
+
+	.business-service-area__divider {
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.service-area__map {
+		margin-bottom: var(--space-6);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		aspect-ratio: 1600 / 1120;
+		background-color: var(--color-navy);
+	}
+
+	.service-area__map-image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+	.service-area__map-fallback {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background:
+			repeating-linear-gradient(
+				0deg,
+				rgba(255, 255, 255, 0.06) 0,
+				rgba(255, 255, 255, 0.06) 1px,
+				transparent 1px,
+				transparent 32px
+			),
+			repeating-linear-gradient(
+				90deg,
+				rgba(255, 255, 255, 0.06) 0,
+				rgba(255, 255, 255, 0.06) 1px,
+				transparent 1px,
+				transparent 32px
+			),
+			rgba(255, 255, 255, 0.03);
+	}
+
+	.service-area__map-label {
+		position: absolute;
+		font-family: var(--font-heading);
+		font-weight: 700;
+		font-size: var(--text-sm);
+		color: rgba(255, 255, 255, 0.4);
+	}
+
+	.service-area__map-label--dallas {
+		top: 40%;
+		right: 20%;
+	}
+
+	.service-area__map-label--fw {
+		top: 55%;
+		left: 15%;
+	}
+
+	.service-area__cities :global(.check-list) {
+		grid-template-columns: 1fr;
+		gap: var(--space-2) var(--space-4);
+	}
+
+	.service-area__cities :global(.check-list li) {
+		color: var(--color-text-inverse-muted);
+	}
+
+	.service-area__cities :global(.check-list svg) {
+		color: var(--color-blue-light);
+	}
+
+	@media (min-width: 640px) {
+		.service-area__cities :global(.check-list) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.business-service-area {
+			grid-template-columns: 1.1fr 1px 1fr;
+			align-items: start;
+		}
+
+		.service-area__cities :global(.check-list) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>

@@ -1,0 +1,59 @@
+---
+import Section from '../Section.astro';
+import Container from '../Container.astro';
+import FeatureItem from '../FeatureItem.astro';
+---
+
+<Section background="alt">
+	<Container>
+		<div class="trust-strip__intro">
+			<h2>How We Work With You</h2>
+		</div>
+		<div class="trust-strip__grid">
+			<FeatureItem
+				icon="wrench"
+				label="Hands-On Technical Support"
+				description="Practical support, from planning through execution."
+			/>
+			<FeatureItem
+				icon="chat"
+				label="Clear Communication"
+				description="Straightforward updates every step of the way."
+			/>
+			<FeatureItem
+				icon="sliders"
+				label="Flexible Engagement"
+				description="Support structured to fit how you work."
+			/>
+			<FeatureItem
+				icon="target"
+				label="Focused on Your Success"
+				description="Your outcomes drive how we work."
+			/>
+		</div>
+	</Container>
+</Section>
+
+<style>
+	.trust-strip__intro {
+		margin-bottom: var(--space-8);
+	}
+
+	.trust-strip__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-6);
+	}
+
+	@media (min-width: 640px) {
+		.trust-strip__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.trust-strip__grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+</style>

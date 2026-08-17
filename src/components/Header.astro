@@ -7,7 +7,17 @@ import { site } from '../data/site';
 <header class="site-header">
 	<Container>
 		<div class="site-header__inner">
-			<a href="/" class="site-header__logo">{site.legalName}</a>
+			<a href="/" class="site-header__logo" aria-label={site.legalName}>
+				<svg class="site-header__mark" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" focusable="false">
+					<rect width="40" height="40" rx="8" fill="var(--color-navy)" />
+					<rect x="8" y="11" width="24" height="5" fill="var(--color-white)" />
+					<rect x="17.5" y="11" width="5" height="19" fill="var(--color-white)" />
+				</svg>
+				<span class="site-header__wordmark">
+					<span class="site-header__wordmark-line">Texas Technology</span>
+					<span class="site-header__wordmark-line site-header__wordmark-line--accent">Infrastructure</span>
+				</span>
+			</a>
 
 			<button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
 				<span class="sr-only">Menu</span>
@@ -66,11 +76,30 @@ import { site } from '../data/site';
 	}
 
 	.site-header__logo {
+		display: flex;
+		align-items: center;
+		gap: var(--space-3);
+		text-decoration: none;
+	}
+
+	.site-header__mark {
+		flex-shrink: 0;
+	}
+
+	.site-header__wordmark {
+		display: flex;
+		flex-direction: column;
 		font-family: var(--font-heading);
 		font-weight: 700;
-		font-size: var(--text-lg);
+		font-size: var(--text-sm);
+		line-height: 1.25;
+		letter-spacing: 0.01em;
+		text-transform: uppercase;
 		color: var(--color-navy);
-		text-decoration: none;
+	}
+
+	.site-header__wordmark-line--accent {
+		color: var(--color-blue);
 	}
 
 	.nav-toggle {

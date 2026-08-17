@@ -1,7 +1,7 @@
 ---
 interface Props {
 	href?: string;
-	variant?: 'primary' | 'secondary';
+	variant?: 'primary' | 'secondary' | 'inverse' | 'outline-inverse';
 }
 
 const { href, variant = 'primary' } = Astro.props;
@@ -48,5 +48,27 @@ const Tag = href ? 'a' : 'button';
 	.btn--secondary:hover {
 		border-color: var(--color-blue);
 		color: var(--color-blue);
+	}
+
+	.btn--inverse {
+		background-color: var(--color-white);
+		color: var(--color-blue);
+	}
+
+	.btn--inverse:hover {
+		background-color: var(--color-offwhite);
+		color: var(--color-blue-dark);
+	}
+
+	.btn--outline-inverse {
+		background-color: transparent;
+		color: var(--color-white);
+		border-color: rgba(255, 255, 255, 0.5);
+	}
+
+	.btn--outline-inverse:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		border-color: var(--color-white);
+		color: var(--color-white);
 	}
 </style>

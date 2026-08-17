@@ -11,6 +11,20 @@ import { site } from '../data/site';
 				<p>Managed IT, field services, and network infrastructure for businesses and IT providers.</p>
 			</div>
 
+			<nav aria-label="Services">
+				<h2>Services</h2>
+				<ul>
+					{
+						site.services.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+					}
+					<li><a href="/services">All Services</a></li>
+				</ul>
+			</nav>
+
 			<nav aria-label="Company">
 				<h2>Company</h2>
 				<ul>
@@ -116,7 +130,7 @@ import { site } from '../data/site';
 
 	@media (min-width: 1024px) {
 		.site-footer__grid {
-			grid-template-columns: 2fr 1fr 1fr;
+			grid-template-columns: 2fr 1fr 1fr 1fr;
 		}
 
 		.site-footer__bottom {

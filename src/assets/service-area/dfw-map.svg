@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120" role="img" aria-labelledby="title desc">
+<title id="title">Dallas-Fort Worth onsite service area</title>
+<desc id="desc">Static service-area graphic plotting 35 approved Dallas-Fort Worth communities from geographic coordinates, with Dallas and Fort Worth emphasized.</desc>
+<defs>
+  <radialGradient id="metroGlow" cx="50%" cy="50%" r="62%">
+    <stop offset="0%" stop-color="#2563EB" stop-opacity="0.16"/>
+    <stop offset="58%" stop-color="#2563EB" stop-opacity="0.055"/>
+    <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="softGlow" x="-200%" y="-200%" width="400%" height="400%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <pattern id="smallGrid" width="64" height="64" patternUnits="userSpaceOnUse">
+    <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#234A6F" stroke-opacity="0.26" stroke-width="1"/>
+  </pattern>
+</defs>
+<rect width="100%" height="100%" rx="28" fill="#0B1F33"/>
+<rect width="100%" height="100%" rx="28" fill="url(#smallGrid)"/>
+<ellipse cx="848.0" cy="593.6" rx="736.0" ry="436.8" fill="url(#metroGlow)"/>
+
+<g stroke="#234A6F" stroke-opacity="0.45" stroke-width="1">
+<line x1="394.0" y1="120" x2="394.0" y2="1015" />
+<line x1="668.0" y1="120" x2="668.0" y2="1015" />
+<line x1="942.0" y1="120" x2="942.0" y2="1015" />
+<line x1="1216.0" y1="120" x2="1216.0" y2="1015" />
+<line x1="120" y1="343.8" x2="1490" y2="343.8" />
+<line x1="120" y1="567.5" x2="1490" y2="567.5" />
+<line x1="120" y1="791.2" x2="1490" y2="791.2" />
+</g>
+<g fill="none" stroke="#60A5FA" stroke-opacity="0.16" stroke-width="2">
+<line x1="632.5" y1="590.7" x2="866.4" y2="670.9" />
+<line x1="1199.8" y1="589.3" x2="1028.6" y2="515.6" />
+<line x1="1199.8" y1="589.3" x2="1260.5" y2="327.5" />
+<line x1="1199.8" y1="589.3" x2="1184.1" y2="224.0" />
+<line x1="1199.8" y1="589.3" x2="1301.7" y2="404.5" />
+<line x1="1199.8" y1="589.3" x2="1102.1" y2="387.6" />
+<line x1="1199.8" y1="589.3" x2="919.6" y2="441.0" />
+<line x1="632.5" y1="590.7" x2="848.6" y2="164.1" />
+<line x1="1199.8" y1="589.3" x2="975.6" y2="683.2" />
+<line x1="1199.8" y1="589.3" x2="1023.2" y2="332.3" />
+<line x1="1199.8" y1="589.3" x2="1384.1" y2="464.9" />
+<line x1="1199.8" y1="589.3" x2="1432.4" y2="612.6" />
+<line x1="1199.8" y1="589.3" x2="1346.5" y2="178.5" />
+<line x1="1199.8" y1="589.3" x2="1339.1" y2="270.2" />
+<line x1="632.5" y1="590.7" x2="870.4" y2="799.1" />
+<line x1="1199.8" y1="589.3" x2="1040.1" y2="787.3" />
+<line x1="632.5" y1="590.7" x2="856.0" y2="527.2" />
+<line x1="632.5" y1="590.7" x2="913.7" y2="523.0" />
+<line x1="632.5" y1="590.7" x2="808.1" y2="538.2" />
+<line x1="632.5" y1="590.7" x2="840.0" y2="421.4" />
+<line x1="632.5" y1="590.7" x2="841.7" y2="483.2" />
+<line x1="632.5" y1="590.7" x2="761.1" y2="441.9" />
+<line x1="632.5" y1="590.7" x2="759.1" y2="362.6" />
+<line x1="1199.8" y1="589.3" x2="1104.5" y2="286.1" />
+<line x1="1199.8" y1="589.3" x2="1062.8" y2="217.4" />
+<line x1="1199.8" y1="589.3" x2="981.7" y2="421.3" />
+<line x1="632.5" y1="590.7" x2="895.9" y2="362.5" />
+<line x1="632.5" y1="590.7" x2="646.8" y2="850.9" />
+<line x1="632.5" y1="590.7" x2="188.0" y2="617.9" />
+<line x1="632.5" y1="590.7" x2="434.2" y2="479.1" />
+<line x1="1199.8" y1="589.3" x2="1088.7" y2="723.6" />
+<line x1="1199.8" y1="589.3" x2="1140.4" y2="769.5" />
+<line x1="1199.8" y1="589.3" x2="1159.9" y2="961.1" />
+</g>
+
+<g font-family="Inter, Arial, sans-serif">
+  <text x="72" y="72" fill="#F7F9FC" font-size="30" font-weight="700" letter-spacing="1.2">DFW ONSITE SERVICE AREA</text>
+  <text x="72" y="105" fill="#A9B8C9" font-size="18">Dallas–Fort Worth and surrounding communities</text>
+</g>
+<g>
+<circle cx="1199.8" cy="589.3" r="22" fill="#2563EB" fill-opacity="0.18" stroke="#60A5FA" stroke-width="3" filter="url(#softGlow)"/>
+<circle cx="1199.8" cy="589.3" r="7" fill="#F7F9FC"/>
+<circle cx="632.5" cy="590.7" r="22" fill="#2563EB" fill-opacity="0.18" stroke="#60A5FA" stroke-width="3" filter="url(#softGlow)"/>
+<circle cx="632.5" cy="590.7" r="7" fill="#F7F9FC"/>
+<circle cx="866.4" cy="670.9" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1028.6" cy="515.6" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1260.5" cy="327.5" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1184.1" cy="224.0" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1301.7" cy="404.5" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1102.1" cy="387.6" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="919.6" cy="441.0" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="848.6" cy="164.1" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="975.6" cy="683.2" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1023.2" cy="332.3" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1384.1" cy="464.9" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1432.4" cy="612.6" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1346.5" cy="178.5" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1339.1" cy="270.2" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="870.4" cy="799.1" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1040.1" cy="787.3" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="856.0" cy="527.2" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="913.7" cy="523.0" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="808.1" cy="538.2" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="840.0" cy="421.4" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="841.7" cy="483.2" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="761.1" cy="441.9" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="759.1" cy="362.6" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1104.5" cy="286.1" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1062.8" cy="217.4" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="981.7" cy="421.3" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="895.9" cy="362.5" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="646.8" cy="850.9" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="188.0" cy="617.9" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="434.2" cy="479.1" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1088.7" cy="723.6" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1140.4" cy="769.5" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+<circle cx="1159.9" cy="961.1" r="6.5" fill="#60A5FA" stroke="#0B1F33" stroke-width="2"/>
+</g>
+<g font-family="Inter, Arial, sans-serif">
+<text x="610.5" y="566.7" text-anchor="end" fill="#F7F9FC" font-size="28" font-weight="750">Fort Worth</text>
+<text x="1217.8" y="565.3" text-anchor="start" fill="#F7F9FC" font-size="28" font-weight="750">Dallas</text>
+<text x="880.4" y="698.9" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">Arlington</text>
+<text x="1010.6" y="491.6" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Irving / Las Colinas</text>
+<text x="832.6" y="142.1" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Denton</text>
+<text x="1166.1" y="202.0" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Frisco</text>
+<text x="1276.5" y="319.5" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">Plano</text>
+<text x="1362.5" y="160.5" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">McKinney</text>
+<text x="901.6" y="471.0" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Grapevine</text>
+<text x="858.4" y="829.1" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Mansfield</text>
+<text x="1400.1" y="456.9" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">Garland</text>
+<text x="1448.4" y="636.6" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">Mesquite</text>
+<text x="877.9" y="344.5" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Flower Mound</text>
+<text x="1120.5" y="278.1" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">The Colony</text>
+<text x="204.0" y="601.9" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">Weatherford</text>
+<text x="418.2" y="463.1" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Azle</text>
+<text x="630.8" y="878.9" text-anchor="end" fill="#CBD5E1" font-size="17" font-weight="600">Burleson</text>
+<text x="1175.9" y="987.1" text-anchor="start" fill="#CBD5E1" font-size="17" font-weight="600">Waxahachie</text>
+</g>
+
+<g transform="translate(72,1056)" font-family="Inter, Arial, sans-serif">
+  <circle cx="8" cy="0" r="6" fill="#60A5FA"/>
+  <text x="24" y="6" fill="#A9B8C9" font-size="16">35 approved DFW communities plotted from geographic coordinates</text>
+  <text x="760" y="6" fill="#A9B8C9" font-size="15">Connection lines are illustrative service-network styling, not roads.</text>
+</g>
+</svg>

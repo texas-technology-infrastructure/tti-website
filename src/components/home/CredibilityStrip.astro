@@ -1,0 +1,66 @@
+---
+import Section from '../Section.astro';
+import Container from '../Container.astro';
+import FeatureItem from '../FeatureItem.astro';
+---
+
+<Section>
+	<Container>
+		<h2 class="sr-only">Why Businesses &amp; IT Providers Choose TTI</h2>
+		<div class="credibility-strip">
+			<FeatureItem
+				icon="map-pin"
+				label="Dallas–Fort Worth Coverage"
+				description="Onsite service throughout DFW and surrounding communities."
+			/>
+			<FeatureItem
+				icon="signal"
+				label="Remote Support"
+				description="IT services available beyond DFW."
+			/>
+			<FeatureItem
+				icon="users"
+				label="Businesses & IT Providers"
+				description="Support for businesses, internal teams, and IT providers."
+			/>
+			<FeatureItem
+				icon="shield"
+				label="Reliable & Secure"
+				description="A practical, security-minded approach."
+			/>
+			<FeatureItem
+				icon="clock"
+				label="Responsive Support"
+				description="Timely help when your team needs it."
+			/>
+		</div>
+	</Container>
+</Section>
+
+<style>
+	.credibility-strip {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-6) var(--space-8);
+	}
+
+	.credibility-strip > :global(.feature-item) {
+		flex: 1 1 100%;
+	}
+
+	@media (min-width: 480px) {
+		.credibility-strip > :global(.feature-item) {
+			flex: 1 1 calc(50% - var(--space-4));
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.credibility-strip {
+			flex-wrap: nowrap;
+		}
+
+		.credibility-strip > :global(.feature-item) {
+			flex: 1 1 0;
+		}
+	}
+</style>

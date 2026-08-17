@@ -1,0 +1,48 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+	items: string[];
+	columns?: 1 | 2;
+}
+
+const { items, columns = 2 } = Astro.props;
+---
+
+<ul class={`check-list check-list--cols-${columns}`}>
+	{
+		items.map((item) => (
+			<li>
+				<Icon name="check" size={14} />
+				<span>{item}</span>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.check-list {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-2) var(--space-4);
+	}
+
+	.check-list--cols-2 {
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	}
+
+	.check-list li {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-2);
+		font-size: var(--text-sm);
+	}
+
+	.check-list :global(svg) {
+		flex-shrink: 0;
+		margin-top: 0.2em;
+		color: var(--color-blue);
+	}
+</style>

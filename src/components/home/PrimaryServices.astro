@@ -1,0 +1,108 @@
+---
+import type { ImageMetadata } from 'astro';
+import Section from '../Section.astro';
+import Container from '../Container.astro';
+import ServiceCard from '../ServiceCard.astro';
+
+interface Props {
+	managedItImage?: ImageMetadata;
+	mspImage?: ImageMetadata;
+	networkImage?: ImageMetadata;
+}
+
+const { managedItImage, mspImage, networkImage } = Astro.props;
+---
+
+<Section background="alt">
+	<Container>
+		<div class="primary-services__intro">
+			<p class="primary-services__eyebrow">How We Support You &amp; Your Business</p>
+			<h2>Three Ways We Deliver Value</h2>
+		</div>
+		<div class="primary-services__grid">
+			<ServiceCard
+				title="Managed IT Services"
+				description="Day-to-day IT support and management for growing businesses."
+				href="/services"
+				icon="desktop"
+				image={managedItImage}
+				imageAlt=""
+				bullets={[
+					'Help Desk & End-User Support',
+					'Microsoft 365 Administration',
+					'Network & Wi-Fi Management',
+					'Onboarding & Offboarding',
+					'Backup Oversight',
+					'Vendor Coordination',
+					'IT Planning & Consulting',
+					'Proactive IT Support',
+				]}
+			/>
+			<ServiceCard
+				title="MSP & IT Provider Services"
+				description="Extend your team with reliable DFW field and remote support."
+				href="/services"
+				icon="network-extend"
+				image={mspImage}
+				imageAlt=""
+				bullets={[
+					'DFW Field Dispatch',
+					'Smart Hands & Remote Hands',
+					'Hardware Replacement',
+					'Rack & Stack Support',
+					'Remote Help Desk / NOC Support',
+					'Network & Infrastructure Deployments',
+					'Project Implementation',
+					'White-Label Services',
+				]}
+			/>
+			<ServiceCard
+				title="Network Infrastructure Services"
+				description="The physical network infrastructure that keeps your business running."
+				href="/services"
+				icon="cable"
+				image={networkImage}
+				imageAlt=""
+				bullets={[
+					'Structured Cabling',
+					'Fiber Installation & Termination',
+					'Cable Testing',
+					'Racks, MDF & IDF Buildouts',
+					'Switch Deployment',
+					'Wi-Fi Infrastructure',
+					'Network Troubleshooting',
+					'Infrastructure Upgrades',
+				]}
+			/>
+		</div>
+	</Container>
+</Section>
+
+<style>
+	.primary-services__intro {
+		text-align: center;
+		max-width: 40rem;
+		margin: 0 auto var(--space-8);
+	}
+
+	.primary-services__eyebrow {
+		font-size: var(--text-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--color-blue);
+		margin-bottom: var(--space-2);
+	}
+
+	.primary-services__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-8);
+	}
+
+	@media (min-width: 1024px) {
+		.primary-services__grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>

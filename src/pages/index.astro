@@ -1,23 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
-import Container from '../components/Container.astro';
-import Button from '../components/Button.astro';
-import { site } from '../data/site';
+import Hero from '../components/home/Hero.astro';
+import CredibilityStrip from '../components/home/CredibilityStrip.astro';
+import PrimaryServices from '../components/home/PrimaryServices.astro';
+import SecondaryServices from '../components/home/SecondaryServices.astro';
+import BusinessMspServiceArea from '../components/home/BusinessMspServiceArea.astro';
+import TrustStrip from '../components/home/TrustStrip.astro';
+import FinalCta from '../components/home/FinalCta.astro';
+import heroImage from '../assets/hero/hero-technician-rack.webp';
+import managedItImage from '../assets/services/managed-it.webp';
+import mspImage from '../assets/services/msp-provider.webp';
+import networkImage from '../assets/services/network-infrastructure.webp';
+import dfwMapImage from '../assets/service-area/dfw-map.svg';
 ---
 
 <BaseLayout
 	title="Managed IT, MSP & Network Infrastructure Services"
-	description="Texas Technology Infrastructure provides managed IT, MSP, and network infrastructure services for businesses in Dallas–Fort Worth and beyond."
+	description="Texas Technology Infrastructure provides managed IT, MSP, and network infrastructure services for businesses and IT providers in Dallas–Fort Worth and beyond."
 >
-	<Section background="inverse">
-		<Container>
-			<h1>Managed IT, MSP &amp; Network Infrastructure Services</h1>
-			<p>
-				Texas Technology Infrastructure helps businesses run reliable, well-managed technology
-				&mdash; from day-to-day IT support to the network infrastructure it depends on.
-			</p>
-			<Button href={site.primaryCta.href}>{site.primaryCta.label}</Button>
-		</Container>
-	</Section>
+	<Hero image={heroImage} />
+	<CredibilityStrip />
+	<PrimaryServices managedItImage={managedItImage} mspImage={mspImage} networkImage={networkImage} />
+	<SecondaryServices />
+	<BusinessMspServiceArea mapImage={dfwMapImage} />
+	<TrustStrip />
+	<FinalCta />
 </BaseLayout>

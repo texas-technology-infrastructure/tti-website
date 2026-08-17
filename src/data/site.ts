@@ -16,6 +16,7 @@ export interface SiteConfig {
 		onsite: string;
 		remote: string;
 	};
+	services: NavItem[];
 }
 
 export const site: SiteConfig = {
@@ -36,4 +37,10 @@ export const site: SiteConfig = {
 		onsite: 'Onsite: Dallas–Fort Worth and surrounding communities.',
 		remote: 'Remote IT services available beyond DFW.',
 	},
+	services: [
+		{ label: 'Managed IT Services', href: '/services' },
+		{ label: 'MSP & IT Provider Services', href: '/services' },
+		{ label: 'Network Infrastructure Services', href: '/services' },
+		{ label: 'Web & Business Technology Services', href: '/services' },
+	],
 };

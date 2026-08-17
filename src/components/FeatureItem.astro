@@ -1,0 +1,57 @@
+---
+import Icon, { type IconName } from './Icon.astro';
+
+interface Props {
+	icon: IconName;
+	label: string;
+	description?: string;
+}
+
+const { icon, label, description } = Astro.props;
+---
+
+<div class={`feature-item ${description ? 'feature-item--full' : 'feature-item--compact'}`}>
+	<span class="feature-item__badge">
+		<Icon name={icon} size={20} />
+	</span>
+	<div class="feature-item__text">
+		<p class="feature-item__label">{label}</p>
+		{description && <p class="feature-item__description">{description}</p>}
+	</div>
+</div>
+
+<style>
+	.feature-item {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-3);
+	}
+
+	.feature-item--compact {
+		align-items: center;
+	}
+
+	.feature-item__badge {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: var(--radius-full);
+		color: var(--icon-color, var(--color-blue));
+		background-color: var(--icon-bg, rgba(37, 99, 235, 0.08));
+	}
+
+	.feature-item__label {
+		font-family: var(--font-heading);
+		font-weight: 700;
+		font-size: var(--text-sm);
+	}
+
+	.feature-item__description {
+		font-size: var(--text-sm);
+		color: var(--color-text-secondary);
+		margin-top: var(--space-1);
+	}
+</style>
