@@ -1,0 +1,58 @@
+---
+import Section from './Section.astro';
+import Container from './Container.astro';
+import Icon, { type IconName } from './Icon.astro';
+import CheckList from './CheckList.astro';
+
+interface Props {
+	id: string;
+	icon: IconName;
+	title: string;
+	description: string;
+	items: string[];
+	background?: 'default' | 'alt';
+}
+
+const { id, icon, title, description, items, background = 'default' } = Astro.props;
+---
+
+<Section background={background}>
+	<Container>
+		<div class="service-category" id={id}>
+			<span class="service-category__badge">
+				<Icon name={icon} size={22} />
+			</span>
+			<h2>{title}</h2>
+			<p class="service-category__description">{description}</p>
+			<CheckList items={items} columns={2} />
+		</div>
+	</Container>
+</Section>
+
+<style>
+	.service-category {
+		max-width: 42rem;
+		scroll-margin-top: 6rem;
+	}
+
+	.service-category__badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: var(--radius-full);
+		background-color: rgba(37, 99, 235, 0.08);
+		color: var(--color-blue);
+		margin-bottom: var(--space-4);
+	}
+
+	.service-category h2 {
+		margin-bottom: var(--space-3);
+	}
+
+	.service-category__description {
+		color: var(--color-text-secondary);
+		margin-bottom: var(--space-6);
+	}
+</style>

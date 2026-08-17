@@ -2,14 +2,217 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import CheckList from '../components/CheckList.astro';
 import { site } from '../data/site';
 ---
 
-<BaseLayout title="Contact" description="Contact Texas Technology Infrastructure.">
+<BaseLayout
+	title="Request a Quote"
+	description="Get in touch with Texas Technology Infrastructure for managed IT support, MSP field services, or network infrastructure work in Dallas–Fort Worth and beyond."
+>
+	<Section background="inverse">
+		<Container>
+			<h1>Request a Quote</h1>
+			<p class="contact-hero__lede">Tell us what you need and we'll follow up by email.</p>
+		</Container>
+	</Section>
+
+	<Section background="alt">
+		<Container>
+			<h2>What's Helpful to Include</h2>
+			<CheckList
+				columns={1}
+				items={[
+					'What kind of support you’re looking for',
+					'Your city or general location',
+					'Any timeline you’re working with',
+					'Your company, if applicable',
+				]}
+			/>
+		</Container>
+	</Section>
+
 	<Section>
 		<Container>
-			<h1>Contact</h1>
-			<p>Reach us at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+			<form
+				class="contact-form"
+				name="contact"
+				method="POST"
+				data-netlify="true"
+				netlify-honeypot="bot-field"
+				action="/contact/success"
+			>
+				<input type="hidden" name="form-name" value="contact" />
+
+				<p class="contact-form__honeypot" aria-hidden="true">
+					<label>
+						Leave this field blank
+						<input type="text" name="bot-field" tabindex="-1" autocomplete="off" />
+					</label>
+				</p>
+
+				<div class="contact-form__field">
+					<label for="name">Name <span class="contact-form__required">(required)</span></label>
+					<input type="text" id="name" name="name" required aria-required="true" />
+				</div>
+
+				<div class="contact-form__field">
+					<label for="company">Company / Organization</label>
+					<input type="text" id="company" name="company" />
+				</div>
+
+				<div class="contact-form__field">
+					<label for="email">Email <span class="contact-form__required">(required)</span></label>
+					<input type="email" id="email" name="email" required aria-required="true" />
+				</div>
+
+				<div class="contact-form__field">
+					<label for="location">City / Location</label>
+					<input type="text" id="location" name="location" />
+				</div>
+
+				<fieldset class="contact-form__fieldset">
+					<legend>Select any that apply (optional)</legend>
+					<div class="contact-form__checkbox-group">
+						<label class="contact-form__checkbox">
+							<input type="checkbox" name="service_interest" value="Ongoing IT support for my business" />
+							Ongoing IT support for my business
+						</label>
+						<label class="contact-form__checkbox">
+							<input type="checkbox" name="service_interest" value="Field/remote support for my MSP or IT company" />
+							Field/remote support for my MSP or IT company
+						</label>
+						<label class="contact-form__checkbox">
+							<input type="checkbox" name="service_interest" value="Network infrastructure project (cabling, Wi-Fi, racks, etc.)" />
+							Network infrastructure project (cabling, Wi-Fi, racks, etc.)
+						</label>
+						<label class="contact-form__checkbox">
+							<input type="checkbox" name="service_interest" value="Website or business technology (email, hosting, DNS, etc.)" />
+							Website or business technology (email, hosting, DNS, etc.)
+						</label>
+						<label class="contact-form__checkbox">
+							<input type="checkbox" name="service_interest" value="Not sure / other" />
+							Not sure / other
+						</label>
+					</div>
+				</fieldset>
+
+				<div class="contact-form__field">
+					<label for="timeline">Preferred Timing / Timeline</label>
+					<input type="text" id="timeline" name="timeline" />
+				</div>
+
+				<div class="contact-form__field">
+					<label for="details">Project / Request Details <span class="contact-form__required">(required)</span></label>
+					<textarea id="details" name="details" rows="6" required aria-required="true"></textarea>
+				</div>
+
+				<Button type="submit">Send Request</Button>
+			</form>
+		</Container>
+	</Section>
+
+	<Section background="alt">
+		<Container>
+			<p class="contact-fallback">
+				Prefer email? Reach us directly at
+				<a href={`mailto:${site.email}`}>{site.email}</a>.
+			</p>
 		</Container>
 	</Section>
 </BaseLayout>
+
+<style>
+	.contact-hero__lede {
+		color: var(--color-text-inverse-muted);
+		margin-top: var(--space-3);
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-5);
+		max-width: 36rem;
+	}
+
+	.contact-form__field {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.contact-form__field label {
+		font-weight: 600;
+		font-size: var(--text-sm);
+	}
+
+	.contact-form__required {
+		font-weight: 400;
+		color: var(--color-text-secondary);
+	}
+
+	.contact-form input[type='text'],
+	.contact-form input[type='email'],
+	.contact-form textarea {
+		font: inherit;
+		padding: var(--space-3) var(--space-4);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
+		background-color: var(--color-white);
+		color: var(--color-text-primary);
+	}
+
+	.contact-form textarea {
+		resize: vertical;
+	}
+
+	.contact-form__fieldset {
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
+		padding: var(--space-4);
+	}
+
+	.contact-form__fieldset legend {
+		font-weight: 600;
+		font-size: var(--text-sm);
+		padding-inline: var(--space-2);
+	}
+
+	.contact-form__checkbox-group {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	.contact-form__checkbox {
+		display: flex;
+		align-items: center;
+		gap: var(--space-3);
+		min-height: 44px;
+		font-size: var(--text-sm);
+		font-weight: 400;
+	}
+
+	.contact-form__checkbox input[type='checkbox'] {
+		width: 1.25rem;
+		height: 1.25rem;
+		flex-shrink: 0;
+	}
+
+	.contact-form__honeypot {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	.contact-fallback a {
+		margin-left: var(--space-1);
+	}
+</style>

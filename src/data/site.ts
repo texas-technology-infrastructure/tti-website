@@ -20,7 +20,7 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-	name: 'TTI',
+	name: 'Texas Technology Infrastructure',
 	legalName: 'Texas Technology Infrastructure LLC',
 	domain: 'https://texastechnologyinfrastructure.com',
 	email: 'sales@texastechnologyinfrastructure.com',

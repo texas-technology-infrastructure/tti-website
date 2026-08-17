@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import Container from '../../components/Container.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+	title="Request Received"
+	description="Thanks for reaching out to Texas Technology Infrastructure. We'll follow up by email shortly."
+>
+	<Section>
+		<Container>
+			<h1>Thanks &mdash; We Got Your Request</h1>
+			<p>We'll follow up by email at the address you provided.</p>
+			<p>
+				<a href="/">Return to the homepage</a> or reach us directly at
+				<a href={`mailto:${site.email}`}>{site.email}</a>.
+			</p>
+		</Container>
+	</Section>
+</BaseLayout>

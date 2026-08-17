@@ -2,13 +2,180 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import ServiceCategory from '../components/ServiceCategory.astro';
+import AudienceCard from '../components/AudienceCard.astro';
+import FinalCta from '../components/home/FinalCta.astro';
+import { site } from '../data/site';
 ---
 
-<BaseLayout title="Services" description="Managed IT, MSP, and network infrastructure services from Texas Technology Infrastructure.">
-	<Section>
+<BaseLayout
+	title="Managed IT, MSP & Network Infrastructure Services"
+	description="Managed IT support, MSP field and remote services, network infrastructure installation, and business technology services from Texas Technology Infrastructure in Dallas–Fort Worth."
+>
+	<Section background="inverse">
 		<Container>
-			<h1>Services</h1>
-			<p>Details on our managed IT, MSP, and network infrastructure services are coming soon.</p>
+			<h1>Managed IT, MSP &amp; Network Infrastructure Services</h1>
+			<p class="services-hero__lede">
+				Outsourced IT support, DFW field services for MSPs and IT providers, physical network
+				infrastructure, and practical web/business technology &mdash; under one team.
+			</p>
+			<Button href={site.primaryCta.href} variant="inverse">{site.primaryCta.label}</Button>
 		</Container>
 	</Section>
+
+	<Section>
+		<Container>
+			<div class="services-intro">
+				<p>
+					However your team is structured, we fit in as hands-on technical support. Jump to the
+					area that matches what you need:
+				</p>
+				<div class="services-intro__links">
+					<Button href="#managed-it" variant="secondary">Managed IT Services</Button>
+					<Button href="#msp-providers" variant="secondary">MSP &amp; IT Provider Services</Button>
+					<Button href="#network-infrastructure" variant="secondary">Network Infrastructure</Button>
+					<Button href="#web-biztech" variant="secondary">Web &amp; Business Technology</Button>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<ServiceCategory
+		id="managed-it"
+		icon="desktop"
+		title="Managed IT Services"
+		description="Day-to-day IT support and management for growing businesses."
+		items={[
+			'Help Desk & End-User Support',
+			'Microsoft 365 Administration',
+			'Network & Wi-Fi Management',
+			'Onboarding & Offboarding',
+			'Backup Oversight',
+			'Vendor Coordination',
+			'IT Planning & Consulting',
+			'Proactive IT Support',
+		]}
+	/>
+
+	<ServiceCategory
+		id="msp-providers"
+		icon="network-extend"
+		title="MSP & IT Provider Services"
+		description="Extend your team with reliable DFW field and remote support."
+		background="alt"
+		items={[
+			'DFW Field Dispatch',
+			'Smart Hands & Remote Hands',
+			'Hardware Replacement',
+			'Rack & Stack Support',
+			'Remote Help Desk / NOC Support',
+			'Network & Infrastructure Deployments',
+			'Project Implementation',
+			'White-Label Services',
+		]}
+	/>
+
+	<ServiceCategory
+		id="network-infrastructure"
+		icon="cable"
+		title="Network Infrastructure Services"
+		description="The physical network infrastructure that keeps your business running."
+		items={[
+			'Structured Cabling',
+			'Fiber Installation & Termination',
+			'Cable Testing',
+			'Racks, MDF & IDF Buildouts',
+			'Switch Deployment',
+			'Wi-Fi Infrastructure',
+			'Network Troubleshooting',
+			'Infrastructure Upgrades',
+		]}
+	/>
+
+	<ServiceCategory
+		id="web-biztech"
+		icon="globe"
+		title="Web & Business Technology Services"
+		description="Practical web and business technology support for teams who want one team handling it all."
+		background="alt"
+		items={[
+			'Website Design & Development',
+			'Website Hosting',
+			'Website Maintenance',
+			'Business Email & Microsoft 365',
+			'Domain & DNS Management',
+			'Ongoing Support',
+		]}
+	/>
+
+	<Section background="inverse">
+		<Container>
+			<h2>Partners for Your Success</h2>
+			<p class="engagement__intro">
+				However your team is structured, we fit in as hands-on technical support.
+			</p>
+			<div class="engagement__cards">
+				<AudienceCard
+					href="/contact"
+					icon="building"
+					label="For Businesses"
+					description="We manage and support your technology directly — as your outsourced IT department or alongside your existing team."
+				/>
+				<AudienceCard
+					href="/contact"
+					icon="network-extend"
+					label="For MSPs & IT Providers"
+					description="We act as an extension of your technical team — providing DFW field support, remote help desk coverage, and infrastructure work under your brand."
+				/>
+			</div>
+		</Container>
+	</Section>
+
+	<Section>
+		<Container>
+			<h2>Onsite in DFW, Remote Beyond It</h2>
+			<p>{site.serviceArea.onsite}</p>
+			<p>{site.serviceArea.remote}</p>
+		</Container>
+	</Section>
+
+	<FinalCta />
 </BaseLayout>
+
+<style>
+	.services-hero__lede {
+		color: var(--color-text-inverse-muted);
+		max-width: 55ch;
+		margin-block: var(--space-4) var(--space-6);
+	}
+
+	.services-intro p {
+		max-width: 55ch;
+		margin-bottom: var(--space-5);
+	}
+
+	.services-intro__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-3);
+	}
+
+	.engagement__intro {
+		color: var(--color-text-inverse-muted);
+		max-width: 55ch;
+		margin-block: var(--space-3) var(--space-6);
+	}
+
+	.engagement__cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-4);
+	}
+
+	@media (min-width: 1024px) {
+		.engagement__cards {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+</style>
