@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="Contact" description="Contact Texas Technology Infrastructure.">
+	<Section>
+		<Container>
+			<h1>Contact</h1>
+			<p>Reach us at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+		</Container>
+	</Section>
+</BaseLayout>

@@ -1,0 +1,128 @@
+---
+import Container from './Container.astro';
+import { site } from '../data/site';
+---
+
+<footer class="site-footer">
+	<Container>
+		<div class="site-footer__grid">
+			<div class="site-footer__brand">
+				<p class="site-footer__name">{site.legalName}</p>
+				<p>Managed IT, field services, and network infrastructure for businesses and IT providers.</p>
+			</div>
+
+			<nav aria-label="Company">
+				<h2>Company</h2>
+				<ul>
+					{
+						site.nav.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<div class="site-footer__contact">
+				<h2>Contact</h2>
+				<p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+				{site.phone && <p><a href={`tel:${site.phone}`}>{site.phone}</a></p>}
+				<p class="site-footer__service-area">
+					{site.serviceArea.onsite}<br />
+					{site.serviceArea.remote}
+				</p>
+			</div>
+		</div>
+
+		<div class="site-footer__bottom">
+			<p>&copy; {new Date().getFullYear()} {site.legalName}. All rights reserved.</p>
+			<nav aria-label="Legal">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/terms">Terms of Service</a>
+			</nav>
+		</div>
+	</Container>
+</footer>
+
+<style>
+	.site-footer {
+		background-color: var(--color-navy);
+		color: var(--color-text-inverse-muted);
+		padding-block: var(--space-10);
+	}
+
+	.site-footer h2 {
+		color: var(--color-text-inverse);
+		font-size: var(--text-sm);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		margin-bottom: var(--space-3);
+	}
+
+	.site-footer__name {
+		color: var(--color-text-inverse);
+		font-family: var(--font-heading);
+		font-weight: 700;
+		margin-bottom: var(--space-2);
+	}
+
+	.site-footer__grid {
+		display: grid;
+		gap: var(--space-8);
+		grid-template-columns: 1fr;
+	}
+
+	.site-footer__grid nav ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+	}
+
+	.site-footer a {
+		color: var(--color-text-inverse-muted);
+	}
+
+	.site-footer a:hover {
+		color: var(--color-white);
+	}
+
+	.site-footer__service-area {
+		margin-top: var(--space-3);
+	}
+
+	.site-footer__bottom {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+		margin-top: var(--space-8);
+		padding-top: var(--space-6);
+		border-top: 1px solid rgba(247, 249, 252, 0.15);
+		font-size: var(--text-sm);
+	}
+
+	.site-footer__bottom nav {
+		display: flex;
+		gap: var(--space-4);
+	}
+
+	@media (min-width: 640px) {
+		.site-footer__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.site-footer__grid {
+			grid-template-columns: 2fr 1fr 1fr;
+		}
+
+		.site-footer__bottom {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+</style>

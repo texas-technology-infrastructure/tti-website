@@ -1,0 +1,12 @@
+---
+interface Props {
+	background?: 'default' | 'alt' | 'inverse';
+}
+
+const { background = 'default' } = Astro.props;
+const modifier = background === 'default' ? '' : ` section--${background}`;
+---
+
+<section class={`section${modifier}`}>
+	<slot />
+</section>

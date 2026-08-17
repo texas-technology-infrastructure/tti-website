@@ -1,17 +1,23 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import { site } from '../data/site';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+	title="Managed IT, MSP & Network Infrastructure Services"
+	description="Texas Technology Infrastructure provides managed IT, MSP, and network infrastructure services for businesses in Dallas–Fort Worth and beyond."
+>
+	<Section background="inverse">
+		<Container>
+			<h1>Managed IT, MSP &amp; Network Infrastructure Services</h1>
+			<p>
+				Texas Technology Infrastructure helps businesses run reliable, well-managed technology
+				&mdash; from day-to-day IT support to the network infrastructure it depends on.
+			</p>
+			<Button href={site.primaryCta.href}>{site.primaryCta.label}</Button>
+		</Container>
+	</Section>
+</BaseLayout>

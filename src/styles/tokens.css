@@ -1,0 +1,92 @@
+/*
+  Breakpoints reference (not usable as custom properties inside @media —
+  documented here, applied as literal values at each call site):
+  tablet: 640px | laptop: 1024px | desktop: 1280px | wide-desktop: 1536px
+*/
+
+:root {
+	/* Color: brand */
+	--color-navy: #0b1f33;
+	--color-blue: #2563eb;
+	--color-blue-dark: #1d4ed8;
+
+	/* Color: neutrals */
+	--color-white: #ffffff;
+	--color-offwhite: #f7f9fc;
+	--color-border: #e2e8f0;
+	--color-muted: #64748b;
+
+	/* Color: text */
+	--color-text-primary: #1e293b;
+	--color-text-secondary: #475569;
+	--color-text-inverse: #f7f9fc;
+	--color-text-inverse-muted: #cbd5e1;
+
+	/* Color: semantic aliases */
+	--color-bg: var(--color-white);
+	--color-bg-alt: var(--color-offwhite);
+	--color-bg-inverse: var(--color-navy);
+	--color-link: var(--color-blue);
+	--color-focus-ring: var(--color-blue);
+
+	/* Typography */
+	--font-heading: 'Manrope Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-body: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+	--text-xs: 0.8125rem;
+	--text-sm: 0.9375rem;
+	--text-base: 1rem;
+	--text-lg: 1.125rem;
+	--text-xl: 1.375rem;
+	--text-2xl: 1.75rem;
+	--text-3xl: 2.25rem;
+	--text-4xl: 2.75rem;
+
+	--leading-tight: 1.2;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.65;
+
+	/* Spacing scale */
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2rem;
+	--space-8: 3rem;
+	--space-10: 4rem;
+	--space-12: 5rem;
+	--space-16: 6.5rem;
+
+	/* Radius */
+	--radius-sm: 4px;
+	--radius-md: 8px;
+	--radius-full: 999px;
+
+	/* Shadow */
+	--shadow-sm: 0 1px 2px rgba(11, 31, 51, 0.06);
+	--shadow-md: 0 4px 12px rgba(11, 31, 51, 0.1);
+
+	/* Layout */
+	--container-max: 1200px;
+	--gutter: var(--space-4);
+	--section-spacing: var(--space-10);
+
+	/* Motion */
+	--transition-fast: 150ms ease;
+	--transition-base: 220ms ease;
+}
+
+@media (min-width: 640px) {
+	:root {
+		--gutter: var(--space-6);
+	}
+}
+
+@media (min-width: 1024px) {
+	:root {
+		--gutter: var(--space-8);
+		--section-spacing: var(--space-12);
+		--text-4xl: 3.25rem;
+	}
+}
