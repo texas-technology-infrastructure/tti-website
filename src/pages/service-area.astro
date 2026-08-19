@@ -1,16 +1,200 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import CheckList from '../components/CheckList.astro';
+import FinalCta from '../components/home/FinalCta.astro';
 import { site } from '../data/site';
+import dfwMapImage from '../assets/service-area/dfw-map.svg';
 ---
 
-<BaseLayout title="Service Area" description="Where Texas Technology Infrastructure provides onsite and remote IT services.">
-	<Section>
+<BaseLayout
+	title="Service Area"
+	description="Dallas–Fort Worth onsite technology and network infrastructure coverage, plus remote IT support for organizations beyond DFW."
+>
+	<Section background="inverse">
 		<Container>
-			<h1>Service Area</h1>
-			<p>{site.serviceArea.onsite}</p>
-			<p>{site.serviceArea.remote}</p>
+			<h1>Our Service Area</h1>
+			<p class="service-area-hero__lede">
+				Onsite support throughout Dallas&ndash;Fort Worth, and remote IT services for
+				organizations beyond it.
+			</p>
+			<Button href={site.primaryCta.href} variant="inverse">{site.primaryCta.label}</Button>
 		</Container>
 	</Section>
+
+	<Section>
+		<Container>
+			<h2>Onsite in DFW, Remote Beyond It</h2>
+			<div class="service-area-explain">
+				<div>
+					<h3>Onsite Support in Dallas&ndash;Fort Worth</h3>
+					<p>
+						We provide onsite technology and network infrastructure work throughout
+						Dallas&ndash;Fort Worth and the surrounding communities &mdash; from routine support
+						visits to project-based infrastructure work.
+					</p>
+				</div>
+				<div>
+					<h3>Remote Support Beyond DFW</h3>
+					<p>
+						Outside of DFW, we provide remote IT support and help desk services &mdash; a good
+						fit for day-to-day support that doesn't require someone on site.
+					</p>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<Section background="inverse">
+		<Container>
+			<h2>Proudly Serving Dallas&ndash;Fort Worth</h2>
+			<p class="service-area-map-intro">
+				{site.serviceArea.onsite}<br />
+				{site.serviceArea.remote}
+			</p>
+
+			<div class="service-area-map">
+				<Image
+					src={dfwMapImage}
+					alt=""
+					aria-hidden="true"
+					class="service-area-map__image"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+
+			<ul class="service-area-cities">
+				{site.serviceArea.communities.map((city) => <li>{city}</li>)}
+			</ul>
+		</Container>
+	</Section>
+
+	<Section>
+		<Container>
+			<h2>What Onsite Work Looks Like</h2>
+			<div class="service-area-onsite-grid">
+				<CheckList
+					columns={2}
+					items={[
+						'Network & Wi-Fi infrastructure installation',
+						'Structured cabling & fiber work',
+						'Hardware deployment & replacement',
+						'Routine IT support visits',
+						'MSP field dispatch & smart hands',
+						'Project-based infrastructure work',
+					]}
+				/>
+			</div>
+		</Container>
+	</Section>
+
+	<Section background="alt">
+		<Container>
+			<h2>Outside These Communities?</h2>
+			<p class="service-area-outside">
+				The communities listed above represent our primary service area, not a strict service
+				boundary. If your organization or project is outside this list, reach out &mdash; we're
+				happy to discuss what's possible.
+			</p>
+			<Button href={site.primaryCta.href}>{site.primaryCta.label}</Button>
+		</Container>
+	</Section>
+
+	<FinalCta />
 </BaseLayout>
+
+<style>
+	.service-area-hero__lede {
+		color: var(--color-text-inverse-muted);
+		max-width: 55ch;
+		margin-block: var(--space-4) var(--space-6);
+	}
+
+	.service-area-explain {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-6);
+		margin-top: var(--space-5);
+	}
+
+	.service-area-explain h3 {
+		margin-bottom: var(--space-2);
+	}
+
+	.service-area-explain p {
+		color: var(--color-text-secondary);
+	}
+
+	.service-area-map-intro {
+		color: var(--color-text-inverse-muted);
+		margin-block: var(--space-3) var(--space-6);
+	}
+
+	.service-area-map {
+		margin-bottom: var(--space-6);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		aspect-ratio: 1600 / 1120;
+		background-color: var(--color-navy);
+	}
+
+	.service-area-map__image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+	.service-area-cities {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--space-2) var(--space-4);
+	}
+
+	.service-area-onsite-grid :global(.check-list) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.service-area-cities li {
+		color: var(--color-text-inverse-muted);
+		font-size: var(--text-sm);
+	}
+
+	.service-area-outside {
+		max-width: 55ch;
+		margin-block: var(--space-3) var(--space-6);
+		color: var(--color-text-secondary);
+	}
+
+	@media (min-width: 360px) {
+		.service-area-cities {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 640px) {
+		.service-area-onsite-grid :global(.check-list) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.service-area-explain {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.service-area-cities {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		.service-area-onsite-grid :global(.check-list) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>

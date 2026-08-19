@@ -2,13 +2,218 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import CheckList from '../components/CheckList.astro';
+import ServiceCategory from '../components/ServiceCategory.astro';
+import FinalCta from '../components/home/FinalCta.astro';
+import { site } from '../data/site';
 ---
 
-<BaseLayout title="Industries" description="Industries served by Texas Technology Infrastructure.">
-	<Section>
+<BaseLayout
+	title="Industries We Support"
+	description="Technology support for businesses, MSPs and IT providers, multifamily and student housing properties, and general contractors in Dallas–Fort Worth."
+>
+	<Section background="inverse">
 		<Container>
-			<h1>Industries</h1>
-			<p>Details on the industries we serve are coming soon.</p>
+			<h1>Industries We Support</h1>
+			<p class="industries-hero__lede">
+				From day-to-day IT support to network infrastructure projects, our services are designed
+				to support a range of organizations across Dallas&ndash;Fort Worth. Here's how we can fit
+				in.
+			</p>
+			<Button href={site.primaryCta.href} variant="inverse">{site.primaryCta.label}</Button>
 		</Container>
 	</Section>
+
+	<Section>
+		<Container>
+			<div class="industries-intro">
+				<h2>Who We Support</h2>
+				<p>
+					Our services are designed around a few common types of organizations. Find the one that
+					sounds like you &mdash; or reach out and we'll help you figure out where you fit.
+				</p>
+				<div class="industries-intro__links">
+					<Button href="#businesses" variant="secondary">Businesses &amp; Professional Organizations</Button>
+					<Button href="#msps" variant="secondary">MSPs &amp; IT Providers</Button>
+					<Button href="#multifamily" variant="secondary">Multifamily &amp; Student Housing</Button>
+					<Button href="#contractors" variant="secondary">General Contractors &amp; Project Teams</Button>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<ServiceCategory
+		id="businesses"
+		icon="users"
+		title="Businesses & Professional Organizations"
+		description="For businesses that need reliable day-to-day technology support without hiring a full internal IT department — or that want to supplement the team they already have."
+		items={[
+			'Day-to-day help desk & user support',
+			'Microsoft 365 setup & administration',
+			'Network & Wi-Fi management',
+			'Vendor coordination',
+			'Technology planning as you grow',
+			'Support as your outsourced IT team, or alongside your staff',
+		]}
+	/>
+
+	<ServiceCategory
+		id="msps"
+		icon="network-extend"
+		title="MSPs & IT Providers"
+		description="For MSPs and IT providers based outside DFW that need dependable local coverage for work requiring someone onsite. White-label support is available when needed."
+		background="alt"
+		items={[
+			'DFW field dispatch & smart hands',
+			'Remote hands for hardware & infrastructure',
+			'Rack & stack, hardware replacement',
+			'Remote help desk / NOC support',
+			'Network & infrastructure deployments',
+			'White-label support available',
+		]}
+	/>
+
+	<ServiceCategory
+		id="multifamily"
+		icon="building"
+		title="Multifamily & Student Housing"
+		description="For apartment communities and student housing properties that need network and technology infrastructure support. Our focus is the technology and network side of the property, coordinating directly with your property team or existing IT provider."
+		items={[
+			'Property network infrastructure',
+			'Wi-Fi coverage & upgrades',
+			'MDF/IDF work',
+			'Structured cabling',
+			'Switch deployment',
+			'Onsite technical support, coordinated with your team',
+		]}
+	/>
+
+	<ServiceCategory
+		id="contractors"
+		icon="wrench"
+		title="General Contractors & Project Teams"
+		description="For construction and renovation projects that need the structured cabling and network infrastructure scope handled as part of the project team — coordinating around your schedule and other trades on site."
+		background="alt"
+		items={[
+			'Structured cabling & fiber',
+			'Racks, MDF & IDF buildouts',
+			'Switch & Wi-Fi deployment',
+			'Project-based infrastructure implementation',
+			'Coordination with other trades & project timelines',
+		]}
+	/>
+
+	<Section>
+		<Container>
+			<h2>Don't See Your Industry?</h2>
+			<p class="industries-catchall">
+				These are some of the organizations our services are designed to support, but we're not
+				limited to them. If your organization needs hands-on technology support or network
+				infrastructure work in or around Dallas&ndash;Fort Worth, reach out and we'll let you know
+				how we can help.
+			</p>
+		</Container>
+	</Section>
+
+	<Section background="alt">
+		<Container>
+			<h2>What Stays the Same, Whoever You Are</h2>
+			<CheckList
+				columns={2}
+				items={[
+					'Onsite support across Dallas–Fort Worth, remote support beyond it',
+					'Direct or white-label delivery, available as needed',
+					'Clear communication from scoping through completion',
+					'Practical execution — not just a plan on paper',
+				]}
+			/>
+			<div class="industries-cta">
+				<Button href="/services" variant="secondary">View All Services</Button>
+				<Button href={site.primaryCta.href}>{site.primaryCta.label}</Button>
+			</div>
+		</Container>
+	</Section>
+
+	<FinalCta />
 </BaseLayout>
+
+<style>
+	.industries-hero__lede {
+		color: var(--color-text-inverse-muted);
+		max-width: 55ch;
+		margin-block: var(--space-4) var(--space-6);
+	}
+
+	.industries-intro p {
+		max-width: 55ch;
+		margin-block: var(--space-3) var(--space-5);
+	}
+
+	.industries-intro__links {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-3);
+	}
+
+	:global(.industries-intro__links .btn) {
+		width: 100%;
+		text-align: center;
+	}
+
+	.industries-catchall {
+		max-width: 55ch;
+		margin-top: var(--space-3);
+		color: var(--color-text-secondary);
+	}
+
+	.industries-cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-4);
+		margin-top: var(--space-6);
+	}
+
+	/* Reduce the mobile-only gap between the jump-link intro and the first audience section */
+	@media (max-width: 639.98px) {
+		:global(.section:has(.industries-intro)) {
+			padding-bottom: var(--space-6);
+		}
+
+		:global(.section:has(#businesses)) {
+			padding-top: var(--space-6);
+		}
+	}
+
+	@media (min-width: 640px) {
+		.industries-intro__links {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.industries-intro__links {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	/* Audience checklists (Businesses/MSPs/Multifamily/Contractors): avoid the cramped
+	   2-column auto-fit at narrow widths; desktop keeps ServiceCategory's existing behavior. */
+	@media (max-width: 639.98px) {
+		:global(#businesses .check-list),
+		:global(#msps .check-list),
+		:global(#multifamily .check-list),
+		:global(#contractors .check-list) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (min-width: 640px) and (max-width: 1023.98px) {
+		:global(#businesses .check-list),
+		:global(#msps .check-list),
+		:global(#multifamily .check-list),
+		:global(#contractors .check-list) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+</style>

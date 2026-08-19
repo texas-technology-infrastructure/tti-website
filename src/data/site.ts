@@ -15,6 +15,7 @@ export interface SiteConfig {
 	serviceArea: {
 		onsite: string;
 		remote: string;
+		communities: string[];
 	};
 	services: NavItem[];
 }
@@ -36,6 +37,43 @@ export const site: SiteConfig = {
 	serviceArea: {
 		onsite: 'Onsite: Dallas–Fort Worth and surrounding communities.',
 		remote: 'Remote IT services available beyond DFW.',
+		communities: [
+			'Dallas',
+			'Fort Worth',
+			'Arlington',
+			'Irving / Las Colinas',
+			'Plano',
+			'Frisco',
+			'Richardson',
+			'Carrollton',
+			'Grapevine',
+			'Denton',
+			'Grand Prairie',
+			'Lewisville',
+			'Garland',
+			'Mesquite',
+			'McKinney',
+			'Allen',
+			'Mansfield',
+			'Burleson',
+			'Cedar Hill',
+			'Duncanville',
+			'DeSoto',
+			'Waxahachie',
+			'Bedford',
+			'Euless',
+			'Hurst',
+			'Southlake',
+			'Colleyville',
+			'Keller',
+			'Azle',
+			'Weatherford',
+			'Roanoke',
+			'The Colony',
+			'Little Elm',
+			'Coppell',
+			'Flower Mound',
+		],
 	},
 	services: [
 		{ label: 'Managed IT Services', href: '/services' },

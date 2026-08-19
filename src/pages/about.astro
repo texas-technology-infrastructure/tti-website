@@ -2,13 +2,161 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Container from '../components/Container.astro';
+import Button from '../components/Button.astro';
+import CheckList from '../components/CheckList.astro';
+import FeatureItem from '../components/FeatureItem.astro';
+import AudienceCard from '../components/AudienceCard.astro';
+import FinalCta from '../components/home/FinalCta.astro';
+import { site } from '../data/site';
 ---
 
-<BaseLayout title="About" description="About Texas Technology Infrastructure.">
-	<Section>
+<BaseLayout
+	title="About Us"
+	description="Texas Technology Infrastructure provides managed IT, field services, and network infrastructure support for businesses and IT providers in Dallas–Fort Worth."
+>
+	<Section background="inverse">
 		<Container>
-			<h1>About</h1>
-			<p>More about Texas Technology Infrastructure is coming soon.</p>
+			<h1>About Texas Technology Infrastructure</h1>
+			<p class="about-hero__lede">
+				We're a technology services company providing managed IT, field services, and network
+				infrastructure support for businesses and IT providers across Dallas&ndash;Fort Worth.
+			</p>
+			<Button href={site.primaryCta.href} variant="inverse">{site.primaryCta.label}</Button>
 		</Container>
 	</Section>
+
+	<Section>
+		<Container>
+			<h2>Who We Are</h2>
+			<p>
+				Texas Technology Infrastructure provides hands-on technology support for businesses, and
+				field and infrastructure support for MSPs and IT providers, throughout Dallas&ndash;Fort
+				Worth. We work onsite locally and remotely beyond DFW.
+			</p>
+			<p>
+				Our work spans day-to-day managed IT support, field services for other technology
+				providers, physical network infrastructure, and practical business technology like
+				websites, email, and domains &mdash; all handled by one team.
+			</p>
+		</Container>
+	</Section>
+
+	<Section background="inverse">
+		<Container>
+			<h2>Who We Work With</h2>
+			<div class="about-audience">
+				<AudienceCard
+					href="/services"
+					icon="building"
+					label="Working Directly With Your Business"
+					description="We can serve as your outsourced IT department or work alongside the team you already have — covering day-to-day support and larger projects as they come up."
+				/>
+				<AudienceCard
+					href="/services"
+					icon="network-extend"
+					label="Extending Your Team"
+					description="For MSPs and IT providers, we provide DFW field coverage, remote support, and infrastructure work — with white-label support available when needed."
+				/>
+			</div>
+		</Container>
+	</Section>
+
+	<Section>
+		<Container>
+			<h2>How We Work</h2>
+			<div class="about-approach">
+				<FeatureItem
+					icon="wrench"
+					label="Hands-On Execution"
+					description="We work through problems in person and remotely, from initial planning to final implementation."
+				/>
+				<FeatureItem
+					icon="chat"
+					label="Clear Communication"
+					description="You'll know what's happening and why — straightforward updates, no jargon."
+				/>
+				<FeatureItem
+					icon="shield"
+					label="Security-Minded Approach"
+					description="We build support and infrastructure work around sound security practices, not shortcuts."
+				/>
+				<FeatureItem
+					icon="sliders"
+					label="Flexible Engagement"
+					description="We fit into how you already work — as your outsourced IT team, a supplement to your staff, or a partner to your existing provider."
+				/>
+			</div>
+		</Container>
+	</Section>
+
+	<Section background="alt">
+		<Container>
+			<h2>What We Do</h2>
+			<CheckList
+				columns={2}
+				items={[
+					'Managed IT Services',
+					'MSP & IT Provider Services',
+					'Network Infrastructure Services',
+					'Web & Business Technology Services',
+				]}
+			/>
+			<p class="about-services-link">
+				<a href="/services">See the full breakdown of our services</a>
+			</p>
+		</Container>
+	</Section>
+
+	<Section>
+		<Container>
+			<h2>Local in Dallas&ndash;Fort Worth</h2>
+			<p>
+				We're based in and around Dallas&ndash;Fort Worth, providing onsite support throughout the
+				metro and remote support for organizations beyond it.
+			</p>
+			<p class="about-service-area-link">
+				<a href="/service-area">See our full service area</a>
+			</p>
+		</Container>
+	</Section>
+
+	<FinalCta />
 </BaseLayout>
+
+<style>
+	.about-hero__lede {
+		color: var(--color-text-inverse-muted);
+		max-width: 55ch;
+		margin-block: var(--space-4) var(--space-6);
+	}
+
+	.about-audience {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-4);
+		margin-top: var(--space-5);
+	}
+
+	.about-approach {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-6);
+		margin-top: var(--space-5);
+	}
+
+	.about-services-link,
+	.about-service-area-link {
+		margin-top: var(--space-5);
+		font-weight: 600;
+	}
+
+	@media (min-width: 1024px) {
+		.about-audience {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.about-approach {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

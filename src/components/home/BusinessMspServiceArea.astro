@@ -12,44 +12,6 @@ interface Props {
 }
 
 const { mapImage } = Astro.props;
-
-const cities = [
-	'Dallas',
-	'Fort Worth',
-	'Arlington',
-	'Irving / Las Colinas',
-	'Plano',
-	'Frisco',
-	'Richardson',
-	'Carrollton',
-	'Grapevine',
-	'Denton',
-	'Grand Prairie',
-	'Lewisville',
-	'Garland',
-	'Mesquite',
-	'McKinney',
-	'Allen',
-	'Mansfield',
-	'Burleson',
-	'Cedar Hill',
-	'Duncanville',
-	'DeSoto',
-	'Waxahachie',
-	'Bedford',
-	'Euless',
-	'Hurst',
-	'Southlake',
-	'Colleyville',
-	'Keller',
-	'Azle',
-	'Weatherford',
-	'Roanoke',
-	'The Colony',
-	'Little Elm',
-	'Coppell',
-	'Flower Mound',
-];
 ---
 
 <Section background="inverse">
@@ -105,7 +67,7 @@ const cities = [
 				</div>
 
 				<div class="service-area__cities">
-					<CheckList items={cities} columns={1} />
+					<CheckList items={site.serviceArea.communities} columns={1} />
 				</div>
 			</div>
 		</div>
