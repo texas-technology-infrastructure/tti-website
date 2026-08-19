@@ -2,13 +2,100 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Container from '../components/Container.astro';
+import { site } from '../data/site';
 ---
 
 <BaseLayout title="Privacy Policy" description="Privacy Policy for Texas Technology Infrastructure.">
 	<Section>
 		<Container>
 			<h1>Privacy Policy</h1>
-			<p>Our privacy policy is coming soon.</p>
+			<p class="legal-effective-date">Effective Date: August 19, 2026</p>
+
+			<p>
+				This Privacy Policy explains how {site.legalName} ("we," "us," or "our") handles
+				information submitted through texastechnologyinfrastructure.com and through the contact
+				email address published on this website.
+			</p>
+
+			<h2>Information We Collect</h2>
+			<p>
+				When you submit our contact form, we collect the information you choose to provide,
+				which may include your name and email address (required), and your company or
+				organization, city or location, preferred timeline, areas of service you're interested
+				in, and project or request details (all optional, except that a description of your
+				request is required to submit the form). If you email us directly, we receive whatever
+				information is contained in that email.
+			</p>
+
+			<h2>How We Use Information</h2>
+			<p>
+				We use the information you submit to respond to your inquiry, evaluate the services you
+				may be requesting, and communicate with you about your request. We do not use it for
+				advertising or marketing to third parties.
+			</p>
+
+			<h2>How Your Information Is Handled</h2>
+			<p>
+				This website is hosted on Netlify, and our contact form uses Netlify's form-handling
+				service. When you submit the form, Netlify processes and stores the submission on our
+				behalf so that we can receive and manage your inquiry. We do not sell information
+				submitted through this website or share it with third parties for their own marketing
+				purposes.
+			</p>
+
+			<h2>Cookies &amp; Tracking</h2>
+			<p>
+				We do not currently add analytics, advertising, or third-party tracking scripts to this
+				website. If our website practices change, we may update this policy accordingly.
+			</p>
+
+			<h2>Accounts &amp; Payments</h2>
+			<p>
+				This website does not provide customer accounts and does not accept or process payments.
+			</p>
+
+			<h2>Data Retention</h2>
+			<p>
+				We keep the information you submit for as long as reasonably necessary to respond to
+				your inquiry and to maintain reasonable business records of past communications.
+			</p>
+
+			<h2>Your Choices</h2>
+			<p>
+				You may contact us to ask about information you submitted through this website or to
+				request its deletion. We will review and respond to requests as appropriate. Reach us at
+				<a href={`mailto:${site.email}`}>{site.email}</a>.
+			</p>
+
+			<h2>Changes to This Policy</h2>
+			<p>
+				We may update this policy as our website or practices change. The effective date above
+				reflects the most recent update.
+			</p>
+
+			<h2>Contact Us</h2>
+			<p>
+				Questions about this policy can be sent to{' '}
+				<a href={`mailto:${site.email}`}>{site.email}</a>.
+			</p>
 		</Container>
 	</Section>
 </BaseLayout>
+
+<style>
+	h2 {
+		margin-top: var(--space-6);
+		margin-bottom: var(--space-2);
+	}
+
+	p {
+		max-width: 65ch;
+		color: var(--color-text-secondary);
+	}
+
+	.legal-effective-date {
+		color: var(--color-muted);
+		font-size: var(--text-sm);
+		margin-bottom: var(--space-5);
+	}
+</style>

@@ -45,11 +45,12 @@ import { site } from '../data/site';
 		id="managed-it"
 		icon="desktop"
 		title="Managed IT Services"
-		description="Day-to-day IT support and management for growing businesses."
+		description="Day-to-day IT support and ongoing network management for growing businesses — from network troubleshooting and configuration changes to broader IT support and planning."
 		items={[
 			'Help Desk & End-User Support',
 			'Microsoft 365 Administration',
-			'Network & Wi-Fi Management',
+			'Network Management, Administration & Optimization',
+			'LAN, Wi-Fi & Switch/VLAN Configuration',
 			'Onboarding & Offboarding',
 			'Backup Oversight',
 			'Vendor Coordination',
@@ -62,7 +63,7 @@ import { site } from '../data/site';
 		id="msp-providers"
 		icon="network-extend"
 		title="MSP & IT Provider Services"
-		description="Extend your team with reliable DFW field and remote support."
+		description="Extend your team with reliable DFW field and remote support — including network configuration, deployments, and troubleshooting on your behalf."
 		background="alt"
 		items={[
 			'DFW Field Dispatch',
@@ -70,7 +71,8 @@ import { site } from '../data/site';
 			'Hardware Replacement',
 			'Rack & Stack Support',
 			'Remote Help Desk / NOC Support',
-			'Network & Infrastructure Deployments',
+			'Network Configuration & Administration',
+			'LAN Deployments, Migrations & Upgrades',
 			'Project Implementation',
 			'White-Label Services',
 		]}
@@ -80,16 +82,17 @@ import { site } from '../data/site';
 		id="network-infrastructure"
 		icon="cable"
 		title="Network Infrastructure Services"
-		description="The physical network infrastructure that keeps your business running."
+		description="The physical network infrastructure that keeps your business running — from cabling and racks through switch deployment, configuration, testing, and turnover."
 		items={[
 			'Structured Cabling',
 			'Fiber Installation & Termination',
-			'Cable Testing',
+			'Cable Testing & Network Validation',
 			'Racks, MDF & IDF Buildouts',
-			'Switch Deployment',
+			'LAN Buildouts & Network Deployments',
+			'Switch Deployment & Configuration',
 			'Wi-Fi Infrastructure',
 			'Network Troubleshooting',
-			'Infrastructure Upgrades',
+			'Network Expansions & Infrastructure Upgrades',
 		]}
 	/>
 
@@ -176,6 +179,26 @@ import { site } from '../data/site';
 	@media (min-width: 1024px) {
 		.engagement__cards {
 			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	/* Service capability checklists: avoid the cramped 2-column auto-fit at narrow widths;
+	   desktop keeps ServiceCategory's existing behavior. */
+	@media (max-width: 639.98px) {
+		:global(#managed-it .check-list),
+		:global(#msp-providers .check-list),
+		:global(#network-infrastructure .check-list),
+		:global(#web-biztech .check-list) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (min-width: 640px) and (max-width: 1023.98px) {
+		:global(#managed-it .check-list),
+		:global(#msp-providers .check-list),
+		:global(#network-infrastructure .check-list),
+		:global(#web-biztech .check-list) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 </style>

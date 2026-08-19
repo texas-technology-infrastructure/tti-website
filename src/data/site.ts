@@ -76,9 +76,9 @@ export const site: SiteConfig = {
 		],
 	},
 	services: [
-		{ label: 'Managed IT Services', href: '/services' },
-		{ label: 'MSP & IT Provider Services', href: '/services' },
-		{ label: 'Network Infrastructure Services', href: '/services' },
-		{ label: 'Web & Business Technology Services', href: '/services' },
+		{ label: 'Managed IT Services', href: '/services#managed-it' },
+		{ label: 'MSP & IT Provider Services', href: '/services#msp-providers' },
+		{ label: 'Network Infrastructure Services', href: '/services#network-infrastructure' },
+		{ label: 'Web & Business Technology Services', href: '/services#web-biztech' },
 	],
 };

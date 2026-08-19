@@ -2,13 +2,79 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import Container from '../components/Container.astro';
+import { site } from '../data/site';
 ---
 
 <BaseLayout title="Terms of Service" description="Terms of Service for Texas Technology Infrastructure.">
 	<Section>
 		<Container>
 			<h1>Terms of Service</h1>
-			<p>Our terms of service are coming soon.</p>
+			<p class="legal-effective-date">Effective Date: August 19, 2026</p>
+
+			<p>
+				These Terms of Service govern your use of this website —
+				texastechnologyinfrastructure.com — operated by {site.legalName}. They apply only to
+				your use of the website itself, not to any separate service agreement, project scope, or
+				pricing arrangement, which would be established directly with you if and when we work
+				together.
+			</p>
+
+			<h2>Use of This Website</h2>
+			<p>
+				You agree to use this website lawfully and not to interfere with its normal operation,
+				attempt to gain unauthorized access to it, or use it to submit false or malicious
+				information through the contact form.
+			</p>
+
+			<h2>Service Descriptions</h2>
+			<p>
+				The services described on this website are general descriptions of the kind of work we
+				do. Actual scope, deliverables, pricing, and scheduling for any project depend on your
+				specific needs and would be discussed and agreed to separately, outside of this website.
+			</p>
+
+			<h2>Contact &amp; Requests for Service</h2>
+			<p>
+				Submitting the contact form or emailing us does not by itself create a service agreement
+				or obligate either party to proceed. Any actual service engagement, including its scope,
+				pricing, schedule, and other project terms, is established separately from this website.
+			</p>
+
+			<h2>Website Content</h2>
+			<p>
+				The text, images, design, and other content on this website are owned by {site.legalName}
+				or used with permission, unless otherwise indicated. Please don't copy or republish this
+				website's content without our permission.
+			</p>
+
+			<h2>Changes to These Terms</h2>
+			<p>
+				We may update these terms as our website or services evolve. The effective date above
+				reflects the most recent update.
+			</p>
+
+			<h2>Contact Us</h2>
+			<p>
+				Questions about these terms can be sent to <a href={`mailto:${site.email}`}>{site.email}</a>.
+			</p>
 		</Container>
 	</Section>
 </BaseLayout>
+
+<style>
+	h2 {
+		margin-top: var(--space-6);
+		margin-bottom: var(--space-2);
+	}
+
+	p {
+		max-width: 65ch;
+		color: var(--color-text-secondary);
+	}
+
+	.legal-effective-date {
+		color: var(--color-muted);
+		font-size: var(--text-sm);
+		margin-bottom: var(--space-5);
+	}
+</style>
