@@ -1,6 +1,6 @@
 # Texas Technology Infrastructure Website
 
-Official website for **Texas Technology Infrastructure LLC** ("TTI"), a Dallas–Fort Worth technology services company providing IT support, managed IT services, network management, network infrastructure, structured cabling, field services, and project support.
+Official website for **Texas Technology Infrastructure LLC**, a Dallas–Fort Worth technology services company providing IT field services, network infrastructure, structured cabling, managed technology services, and project support.
 
 ## Project Overview
 
@@ -76,7 +76,6 @@ http://localhost:4321
 | `npm run build`   | Create the production build              |
 | `npm run preview` | Preview the production build locally     |
 | `npm run astro`   | Run Astro CLI commands                   |
-| `npm run check`   | Run Astro/TypeScript validation checks   |
 
 ## Project Structure
 
@@ -180,6 +179,8 @@ This repository is owned by the **Texas Technology Infrastructure** GitHub organ
 ```text
 texas-technology-infrastructure/tti-website
 ```
+
+The repository is currently private.
 
 ## Current Development Areas
 
