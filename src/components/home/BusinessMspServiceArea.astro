@@ -4,7 +4,6 @@ import type { ImageMetadata } from 'astro';
 import Section from '../Section.astro';
 import Container from '../Container.astro';
 import Icon from '../Icon.astro';
-import CheckList from '../CheckList.astro';
 import { site } from '../../data/site';
 
 interface Props {
@@ -66,9 +65,10 @@ const { mapImage } = Astro.props;
 					}
 				</div>
 
-				<div class="service-area__cities">
-					<CheckList items={site.serviceArea.communities} columns={1} />
-				</div>
+				<p class="business-service-area__intro">
+					<strong>Serving the Dallas&ndash;Fort Worth Metroplex</strong><br />
+					Dallas &bull; Fort Worth &bull; Arlington &bull; Irving / Las Colinas &bull; Plano &bull; Frisco &bull; Denton &bull; McKinney and surrounding North Texas communities.
+				</p>
 			</div>
 		</div>
 	</Container>
@@ -185,33 +185,10 @@ const { mapImage } = Astro.props;
 		left: 15%;
 	}
 
-	.service-area__cities :global(.check-list) {
-		grid-template-columns: 1fr;
-		gap: var(--space-2) var(--space-4);
-	}
-
-	.service-area__cities :global(.check-list li) {
-		color: var(--color-text-inverse-muted);
-	}
-
-	.service-area__cities :global(.check-list svg) {
-		color: var(--color-blue-light);
-	}
-
-	@media (min-width: 640px) {
-		.service-area__cities :global(.check-list) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
 	@media (min-width: 1024px) {
 		.business-service-area {
 			grid-template-columns: 1.1fr 1px 1fr;
 			align-items: start;
-		}
-
-		.service-area__cities :global(.check-list) {
-			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 </style>
