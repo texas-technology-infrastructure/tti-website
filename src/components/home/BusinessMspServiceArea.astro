@@ -2,15 +2,15 @@
 import Section from '../Section.astro';
 import Container from '../Container.astro';
 import Icon from '../Icon.astro';
-import { site } from '../../data/site';
 
 const mapEmbedParams = new URLSearchParams({
 	key: import.meta.env.PUBLIC_GOOGLE_MAPS_EMBED_API_KEY,
+	q: 'Las Colinas, Irving, TX',
 	center: '32.86,-97.05',
 	zoom: '9',
 	maptype: 'roadmap',
 });
-const mapEmbedSrc = `https://www.google.com/maps/embed/v1/view?${mapEmbedParams.toString()}`;
+const mapEmbedSrc = `https://www.google.com/maps/embed/v1/place?${mapEmbedParams.toString()}`;
 ---
 
 <Section background="inverse">
@@ -46,11 +46,7 @@ const mapEmbedSrc = `https://www.google.com/maps/embed/v1/view?${mapEmbedParams.
 
 <Section background="inverse">
 	<Container>
-		<h2>Proudly Serving Dallas&ndash;Fort Worth</h2>
-		<p class="business-service-area__intro">
-			{site.serviceArea.onsite}<br />
-			{site.serviceArea.remote}
-		</p>
+		<h2 class="service-area__heading">Proudly Serving the Dallas&ndash;Fort Worth Metroplex</h2>
 
 		<div class="service-area__map">
 			<iframe
@@ -62,12 +58,6 @@ const mapEmbedSrc = `https://www.google.com/maps/embed/v1/view?${mapEmbedParams.
 				referrerpolicy="strict-origin-when-cross-origin"
 			></iframe>
 		</div>
-
-		<p class="business-service-area__intro service-area__coverage">
-			<strong>Serving the Dallas&ndash;Fort Worth Metroplex</strong><br />
-			Dallas &bull; Fort Worth &bull; Arlington &bull; Irving / Las Colinas &bull; Plano &bull; Frisco
-			&bull; Denton &bull; McKinney and surrounding North Texas communities.
-		</p>
 	</Container>
 </Section>
 
@@ -77,9 +67,8 @@ const mapEmbedSrc = `https://www.google.com/maps/embed/v1/view?${mapEmbedParams.
 		margin-bottom: var(--space-6);
 	}
 
-	.service-area__coverage {
-		margin-top: var(--space-6);
-		margin-bottom: 0;
+	.service-area__heading {
+		margin-bottom: var(--space-6);
 	}
 
 	.business-service-area__cards {
