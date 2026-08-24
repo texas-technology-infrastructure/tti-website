@@ -1,92 +1,91 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
 import Section from '../Section.astro';
 import Container from '../Container.astro';
 import Icon from '../Icon.astro';
 import { site } from '../../data/site';
 
-interface Props {
-	mapImage?: ImageMetadata;
-}
-
-const { mapImage } = Astro.props;
+const mapEmbedParams = new URLSearchParams({
+	key: import.meta.env.PUBLIC_GOOGLE_MAPS_EMBED_API_KEY,
+	center: '32.86,-97.05',
+	zoom: '9',
+	maptype: 'roadmap',
+});
+const mapEmbedSrc = `https://www.google.com/maps/embed/v1/view?${mapEmbedParams.toString()}`;
 ---
 
 <Section background="inverse">
 	<Container>
-		<div class="business-service-area">
-			<div class="business-service-area__col">
-				<h2>Partners for Your Success</h2>
-				<p class="business-service-area__intro">
-					However your team is structured, we fit in as hands-on technical support.
+		<h2>Partners for Your Success</h2>
+		<p class="business-service-area__intro">
+			However your team is structured, we fit in as hands-on technical support.
+		</p>
+
+		<div class="business-service-area__cards">
+			<div class="business-service-area__block" id="for-businesses">
+				<span class="business-service-area__icon"><Icon name="building" size={20} /></span>
+				<h3>For Businesses</h3>
+				<p>
+					We manage and support your technology directly, whether as your outsourced IT
+					department or alongside your existing team.
 				</p>
-
-				<div class="business-service-area__block" id="for-businesses">
-					<span class="business-service-area__icon"><Icon name="building" size={20} /></span>
-					<h3>For Businesses</h3>
-					<p>
-						We manage and support your technology directly, whether as your outsourced IT
-						department or alongside your existing team.
-					</p>
-					<a href="/services">Learn More <Icon name="arrow-right" size={16} /></a>
-				</div>
-
-				<div class="business-service-area__block" id="for-msps">
-					<span class="business-service-area__icon"><Icon name="network-extend" size={20} /></span>
-					<h3>For MSPs &amp; IT Providers</h3>
-					<p>
-						We act as an extension of your technical team, providing DFW field support,
-						remote help desk coverage, and infrastructure work under your brand.
-					</p>
-					<a href="/services">Learn More <Icon name="arrow-right" size={16} /></a>
-				</div>
+				<a href="/services">Learn More <Icon name="arrow-right" size={16} /></a>
 			</div>
 
-			<div class="business-service-area__divider"></div>
-
-			<div class="business-service-area__col">
-				<h2>Proudly Serving Dallas&ndash;Fort Worth</h2>
-				<p class="business-service-area__intro">
-					{site.serviceArea.onsite}<br />
-					{site.serviceArea.remote}
+			<div class="business-service-area__block" id="for-msps">
+				<span class="business-service-area__icon"><Icon name="network-extend" size={20} /></span>
+				<h3>For MSPs &amp; IT Providers</h3>
+				<p>
+					We act as an extension of your technical team, providing DFW field support,
+					remote help desk coverage, and infrastructure work under your brand.
 				</p>
-
-				<div class="service-area__map">
-					{
-						mapImage ? (
-							<Image src={mapImage} alt="" aria-hidden="true" class="service-area__map-image" loading="lazy" decoding="async" />
-						) : (
-							<div class="service-area__map-fallback" aria-hidden="true">
-								<span class="service-area__map-label service-area__map-label--dallas">Dallas</span>
-								<span class="service-area__map-label service-area__map-label--fw">Fort Worth</span>
-							</div>
-						)
-					}
-				</div>
-
-				<p class="business-service-area__intro">
-					<strong>Serving the Dallas&ndash;Fort Worth Metroplex</strong><br />
-					Dallas &bull; Fort Worth &bull; Arlington &bull; Irving / Las Colinas &bull; Plano &bull; Frisco &bull; Denton &bull; McKinney and surrounding North Texas communities.
-				</p>
+				<a href="/services">Learn More <Icon name="arrow-right" size={16} /></a>
 			</div>
 		</div>
 	</Container>
 </Section>
 
+<Section background="inverse">
+	<Container>
+		<h2>Proudly Serving Dallas&ndash;Fort Worth</h2>
+		<p class="business-service-area__intro">
+			{site.serviceArea.onsite}<br />
+			{site.serviceArea.remote}
+		</p>
+
+		<div class="service-area__map">
+			<iframe
+				class="service-area__map-frame"
+				src={mapEmbedSrc}
+				title="Dallas–Fort Worth service area map"
+				loading="lazy"
+				allowfullscreen
+				referrerpolicy="strict-origin-when-cross-origin"
+			></iframe>
+		</div>
+
+		<p class="business-service-area__intro service-area__coverage">
+			<strong>Serving the Dallas&ndash;Fort Worth Metroplex</strong><br />
+			Dallas &bull; Fort Worth &bull; Arlington &bull; Irving / Las Colinas &bull; Plano &bull; Frisco
+			&bull; Denton &bull; McKinney and surrounding North Texas communities.
+		</p>
+	</Container>
+</Section>
+
 <style>
-	.business-service-area {
-		display: grid;
-		gap: var(--space-10);
-	}
-
-	.business-service-area__col h2 {
-		margin-bottom: var(--space-3);
-	}
-
 	.business-service-area__intro {
 		color: var(--color-text-inverse-muted);
 		margin-bottom: var(--space-6);
+	}
+
+	.service-area__coverage {
+		margin-top: var(--space-6);
+		margin-bottom: 0;
+	}
+
+	.business-service-area__cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-6);
 	}
 
 	.business-service-area__block {
@@ -126,69 +125,29 @@ const { mapImage } = Astro.props;
 		font-size: var(--text-sm);
 	}
 
-	.business-service-area__divider {
-		border-top: 1px solid rgba(255, 255, 255, 0.12);
-	}
-
 	.service-area__map {
 		margin-bottom: var(--space-6);
 		border-radius: var(--radius-md);
 		overflow: hidden;
-		aspect-ratio: 1600 / 1120;
+		height: 350px;
 		background-color: var(--color-navy);
 	}
 
-	.service-area__map-image {
+	.service-area__map-frame {
 		width: 100%;
 		height: 100%;
-		object-fit: contain;
 		display: block;
-	}
-
-	.service-area__map-fallback {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		background:
-			repeating-linear-gradient(
-				0deg,
-				rgba(255, 255, 255, 0.06) 0,
-				rgba(255, 255, 255, 0.06) 1px,
-				transparent 1px,
-				transparent 32px
-			),
-			repeating-linear-gradient(
-				90deg,
-				rgba(255, 255, 255, 0.06) 0,
-				rgba(255, 255, 255, 0.06) 1px,
-				transparent 1px,
-				transparent 32px
-			),
-			rgba(255, 255, 255, 0.03);
-	}
-
-	.service-area__map-label {
-		position: absolute;
-		font-family: var(--font-heading);
-		font-weight: 700;
-		font-size: var(--text-sm);
-		color: rgba(255, 255, 255, 0.4);
-	}
-
-	.service-area__map-label--dallas {
-		top: 40%;
-		right: 20%;
-	}
-
-	.service-area__map-label--fw {
-		top: 55%;
-		left: 15%;
+		border: 0;
 	}
 
 	@media (min-width: 1024px) {
-		.business-service-area {
-			grid-template-columns: 1.1fr 1px 1fr;
-			align-items: start;
+		.business-service-area__cards {
+			grid-template-columns: 1fr 1fr;
+			gap: var(--space-8);
+		}
+
+		.service-area__map {
+			height: 500px;
 		}
 	}
 </style>
