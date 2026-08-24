@@ -67,9 +67,10 @@ import dfwMapImage from '../assets/service-area/dfw-map.svg';
 				/>
 			</div>
 
-			<ul class="service-area-cities">
-				{site.serviceArea.communities.map((city) => <li>{city}</li>)}
-			</ul>
+			<p class="service-area-map-intro">
+				<strong>Serving the Dallas&ndash;Fort Worth Metroplex</strong><br />
+				Dallas &bull; Fort Worth &bull; Arlington &bull; Irving / Las Colinas &bull; Plano &bull; Frisco &bull; Denton &bull; McKinney and surrounding North Texas communities.
+			</p>
 		</Container>
 	</Section>
 
@@ -149,33 +150,14 @@ import dfwMapImage from '../assets/service-area/dfw-map.svg';
 		display: block;
 	}
 
-	.service-area-cities {
-		list-style: none;
-		padding: 0;
-		display: grid;
-		grid-template-columns: minmax(0, 1fr);
-		gap: var(--space-2) var(--space-4);
-	}
-
 	.service-area-onsite-grid :global(.check-list) {
 		grid-template-columns: minmax(0, 1fr);
-	}
-
-	.service-area-cities li {
-		color: var(--color-text-inverse-muted);
-		font-size: var(--text-sm);
 	}
 
 	.service-area-outside {
 		max-width: 55ch;
 		margin-block: var(--space-3) var(--space-6);
 		color: var(--color-text-secondary);
-	}
-
-	@media (min-width: 360px) {
-		.service-area-cities {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
 	}
 
 	@media (min-width: 640px) {
@@ -187,10 +169,6 @@ import dfwMapImage from '../assets/service-area/dfw-map.svg';
 	@media (min-width: 1024px) {
 		.service-area-explain {
 			grid-template-columns: 1fr 1fr;
-		}
-
-		.service-area-cities {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 
 		.service-area-onsite-grid :global(.check-list) {
