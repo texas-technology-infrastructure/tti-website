@@ -5,12 +5,11 @@ import Icon from '../Icon.astro';
 
 const mapEmbedParams = new URLSearchParams({
 	key: import.meta.env.PUBLIC_GOOGLE_MAPS_EMBED_API_KEY,
-	q: 'Las Colinas, Irving, TX',
 	center: '32.86,-97.05',
 	zoom: '9',
 	maptype: 'roadmap',
 });
-const mapEmbedSrc = `https://www.google.com/maps/embed/v1/place?${mapEmbedParams.toString()}`;
+const mapEmbedSrc = `https://www.google.com/maps/embed/v1/view?${mapEmbedParams.toString()}`;
 ---
 
 <Section background="inverse">
