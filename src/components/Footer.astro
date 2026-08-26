@@ -41,7 +41,7 @@ import { site } from '../data/site';
 			<div class="site-footer__contact">
 				<h2>Contact</h2>
 				<p><a href={`mailto:${site.email}`}>{site.email}</a></p>
-				{site.phone && <p><a href={`tel:${site.phone}`}>{site.phone}</a></p>}
+				{site.phone && <p><a href={site.phone.href}>{site.phone.display}</a></p>}
 				<p class="site-footer__service-area">
 					{site.serviceArea.onsite}<br />
 					{site.serviceArea.remote}

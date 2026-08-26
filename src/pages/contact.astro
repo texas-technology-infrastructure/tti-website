@@ -119,6 +119,12 @@ import { site } from '../data/site';
 				Prefer email? Reach us directly at
 				<a href={`mailto:${site.email}`}>{site.email}</a>.
 			</p>
+			{site.phone && (
+				<p class="contact-fallback">
+					Prefer to call? Reach us at
+					<a href={site.phone.href}>{site.phone.display}</a>.
+				</p>
+			)}
 		</Container>
 	</Section>
 </BaseLayout>
