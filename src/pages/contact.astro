@@ -125,6 +125,30 @@ import { site } from '../data/site';
 					<a href={site.phone.href}>{site.phone.display}</a>.
 				</p>
 			)}
+			{site.phone && (
+				<div class="contact-call-cta">
+					<Button href={site.phone.href} variant="primary">Call Now</Button>
+				</div>
+			)}
+
+			<div class="contact-hours">
+				<h2 class="contact-hours__heading">Business Hours</h2>
+				<dl class="contact-hours__list">
+					<div class="contact-hours__row">
+						<dt>Monday&ndash;Friday</dt>
+						<dd>{site.businessHours.weekdays}</dd>
+					</div>
+					<div class="contact-hours__row">
+						<dt>Saturday</dt>
+						<dd>{site.businessHours.saturday}</dd>
+					</div>
+					<div class="contact-hours__row">
+						<dt>Sunday</dt>
+						<dd>{site.businessHours.sunday}</dd>
+					</div>
+				</dl>
+				<p class="contact-hours__timezone">{site.businessHours.timezone}</p>
+			</div>
 		</Container>
 	</Section>
 </BaseLayout>
@@ -220,5 +244,42 @@ import { site } from '../data/site';
 
 	.contact-fallback a {
 		margin-left: var(--space-1);
+	}
+
+	.contact-call-cta {
+		margin-top: var(--space-3);
+		margin-bottom: var(--space-6);
+	}
+
+	.contact-hours__heading {
+		margin-bottom: var(--space-3);
+	}
+
+	.contact-hours__list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
+		margin-bottom: var(--space-2);
+	}
+
+	.contact-hours__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-2);
+		font-size: var(--text-sm);
+	}
+
+	.contact-hours__row dt {
+		font-weight: 600;
+		min-width: 8.5rem;
+	}
+
+	.contact-hours__row dd {
+		color: var(--color-text-secondary);
+	}
+
+	.contact-hours__timezone {
+		font-size: var(--text-sm);
+		color: var(--color-muted);
 	}
 </style>

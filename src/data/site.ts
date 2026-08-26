@@ -10,6 +10,12 @@ export interface SiteConfig {
 	email: string;
 	/** Official business phone number. */
 	phone: { display: string; href: string } | null;
+	businessHours: {
+		weekdays: string;
+		saturday: string;
+		sunday: string;
+		timezone: string;
+	};
 	nav: NavItem[];
 	primaryCta: NavItem;
 	serviceArea: {
@@ -26,6 +32,12 @@ export const site: SiteConfig = {
 	domain: 'https://texastechnologyinfrastructure.com',
 	email: 'sales@texastechnologyinfrastructure.com',
 	phone: { display: '(817) 745-5959', href: 'tel:+18177455959' },
+	businessHours: {
+		weekdays: '8:00 AM–6:00 PM',
+		saturday: '9:00 AM–2:00 PM',
+		sunday: 'Closed',
+		timezone: 'Central Time',
+	},
 	nav: [
 		{ label: 'Services', href: '/services' },
 		{ label: 'Industries', href: '/industries' },
