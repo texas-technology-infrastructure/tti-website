@@ -8,8 +8,8 @@ export interface SiteConfig {
 	legalName: string;
 	domain: string;
 	email: string;
-	/** Not finalized. Keep null until a real number exists — never fabricate. */
-	phone: string | null;
+	/** Official business phone number. */
+	phone: { display: string; href: string } | null;
 	nav: NavItem[];
 	primaryCta: NavItem;
 	serviceArea: {
@@ -25,7 +25,7 @@ export const site: SiteConfig = {
 	legalName: 'Texas Technology Infrastructure LLC',
 	domain: 'https://texastechnologyinfrastructure.com',
 	email: 'sales@texastechnologyinfrastructure.com',
-	phone: null,
+	phone: { display: '(817) 745-5959', href: 'tel:+18177455959' },
 	nav: [
 		{ label: 'Services', href: '/services' },
 		{ label: 'Industries', href: '/industries' },
